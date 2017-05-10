@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1>@Context.GetPrincipalAppLanguageForRequest()</h1>
+<div id="content">
+  <h2>[[[Welcome to my web app!]]]</h2>
+  <h3><span>[[[Amazing slogan here]]]</span></h3>
+  <p>[[[Ad copy that would make Hiten Shah fall off his chair!]]]</p>
+  <span class="button" title="[[[Click to see plans and pricing]]]">
+    <a href="@Url.Action("Plans", "Home", new { area = "" })">
+      <strong>[[[SEE PLANS & PRICING]]]</strong>
+      <span>[[[Free unicorn with all plans!]]]</span>
+    </a>
+  </span>
+</div>
+
+<div id="language">
+  <div>
+    <p id="lang_cur" title="@Context.GetPrincipalAppLanguageForRequest()">@Context.GetPrincipalAppLanguageForRequest().GetNativeNameTitleCase()</p>
+  </div>
+  <div id="lang_menu" style="">
+    <table class="table_grid">
+      <tbody>
+        @{
+            int i;
+            int maxcols = 3;
+            KeyValuePair<string, i18n.LanguageTag>[] langs = LanguageHelpers.GetAppLanguages().OrderBy(x => x.Key).ToArray();
+            
+            int cellcnt = langs.Length + 1;
+            for (i = 0; i < cellcnt;)
+            {
+              bool lastRow = i + maxcols >= cellcnt;
+                <tr class="@(Html.Raw((i % 2) == 0 ? "even":"odd")) @(Html.Raw(lastRow ? "last":""))">
+                  @for (int j = 0; j < maxcols && i < cellcnt; ++i, ++j)
+                  {
+                    string langtag;
+                    string title;
+                    string nativelangname;
+                    if (i == 0)
+                    {
+                      langtag = "";
+                      title = "[[[Browser default language setting]]]";
+                      nativelangname = "[[[Auto]]]";
+                    }
+                    else
+                    {
+                      i18n.LanguageTag lt = langs[i - 1].Value;
+                      title = langtag = lt.ToString();
+                      nativelangname = lt.NativeNameTitleCase;
+                    }
+                    <td>
+                      @Html.ActionLink(
+                    linkText: nativelangname,
+                    actionName: "SetLanguage",
+                    controllerName: "Home",
+                    routeValues: new { langtag = langtag, returnUrl = Request.Url },
+                    htmlAttributes: new { title = title })
+                    </td>
+                  }
+                  @* Fill last row with empty cells if ness, so that borders are added and balanced out. *@
+                  @if (lastRow)
+                  {
+                    for (; i % maxcols != 0; ++i)
+                    {
+                          <td></td>
+                    }
+                  }
+                </tr>
+            }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+

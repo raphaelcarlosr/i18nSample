@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-05-10 19:58-03:00\n"
+"PO-Revision-Date: 2017-05-10 20:02-03:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: i18n.POTGenerator\n"
+
+#: Disabled references:1
+msgid "Ad copy that would make Hiten Shah fall off his chair!"
+msgstr "fdsafdasfasdfasfasf"
+
+#: Disabled references:1
+msgid "Amazing slogan here"
+msgstr "fdasfdasfas"
+
+#: Disabled references:1
+msgid "Auto"
+msgstr "fasdfasfads"
+
+#: Disabled references:1
+msgid "Browser default language setting"
+msgstr "fadsfdsafdas"
+
+#: Disabled references:1
+msgid "Click to see plans and pricing"
+msgstr "fdasfasf"
+
+#: Disabled references:1
+msgid "Free unicorn with all plans!"
+msgstr "fasdfasfa"
+
+#: Disabled references:1
+msgid "SEE PLANS & PRICING"
+msgstr "fdasfasfsafdas"
+
+#: Disabled references:1
+msgid "Welcome to my web app!"
+msgstr ""
+
